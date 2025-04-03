@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure--#7^iibmr%+l9rsu%i1a$0$6b+6&82+net8y#)gkr0i7hl8fze
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "django-int-vite-y1sq.onrender.com",
+    "shairanerio.github.io/reactjs-vite-django-webApp",
+]
 
 
 # Application definition
@@ -43,9 +46,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware', 
+    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware', 
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -55,8 +59,12 @@ MIDDLEWARE = [
 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # Replace with the URL of your React frontend
+    "https://shairanerio.github.io/reactjs-vite-django-webApp/",
+    "https://django-int-vite-y1sq.onrender.com/",
 ]
+
+
+CORS_ALLOW_CREDENTIALS = True
 
 
 ROOT_URLCONF = 'todoProject.urls'

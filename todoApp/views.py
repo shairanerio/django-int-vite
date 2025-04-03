@@ -18,7 +18,7 @@ def todo_list(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['GET', 'PUT', 'DELETE'])
+@api_view(['GET', 'PUT', 'PATCH', 'DELETE'])  # Add PATCH here
 def todo_detail(request, pk):
     try:
         todo = Todo.objects.get(pk=pk)
@@ -36,6 +36,14 @@ def todo_detail(request, pk):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    elif request.method == 'PATCH':  # Handle PATCH for partial updates
+        serializer = TodoSerializer(todo, data=request.data, partial=True)  # Partial updates
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
     elif request.method == 'DELETE':
         todo.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
