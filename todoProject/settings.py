@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "django-int-vite-y1sq.onrender.com",
     "shairanerio.github.io/reactjs-vite-django-webApp",
+    "127.0.0.1",
 ]
 
 
@@ -41,8 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'todoApp',
-     'corsheaders',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -59,9 +61,10 @@ MIDDLEWARE = [
 
 
 CORS_ALLOWED_ORIGINS = [
-    "https://shairanerio.github.io/reactjs-vite-django-webApp/",
-    "https://django-int-vite-y1sq.onrender.com/",
+    "https://django-int-vite-y1sq.onrender.com",
+    "https://shairanerio.github.io"
 ]
+
 
 
 CORS_ALLOW_CREDENTIALS = True
@@ -139,3 +142,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES' : [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES' : [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
