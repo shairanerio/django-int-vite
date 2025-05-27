@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "django-int-vite-y1sq.onrender.com",
+    "django-int-vite3.onrender.com",
     "shairanerio.github.io/reactjs-vite-django-webApp",
     "127.0.0.1",
 ]
@@ -62,6 +63,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "https://django-int-vite-y1sq.onrender.com",
+    "https://django-int-vite3.onrender.com"
     "https://shairanerio.github.io"
 ]
 
